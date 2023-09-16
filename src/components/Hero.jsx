@@ -23,7 +23,7 @@ export default function Hero() {
     <div className="flex h-72 w-screen bg-red-600 justify-center">
       <div className="flex items-center flex-col w-9/12">
         <div className="ml-4 absolute top-20 ml-2 font-zilla font-medium text-4xl text-white text-left">Affordable insurance starts here.</div>
-        <button className="h-12 px-6 m-2 relative mt-36 rounded-full font-zilla align-middle text-red-700 text-xl bg-white bg-auto">Savings Here</button>
+        <button className="h-12 px-6 m-2 relative mt-36 rounded-full font-zilla align-middle text-red-700 text-xl bg-white bg-auto">Get Started</button>
         <span className="absolute top-64 mb-12 font-zilla font-light text-white text-xl px-9 text-center" ref={el} />
       </div>
     </div>
