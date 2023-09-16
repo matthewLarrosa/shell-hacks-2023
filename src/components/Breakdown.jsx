@@ -3,7 +3,7 @@ export default function Breakdown() {
   return (
     <div className="flex w-screen h-auto p-2">
         <div>
-        <div className='font-zilla text-left text-black text-2xl'>
+        <div className='ml-2 font-zilla text-left text-black text-2xl'>
           Looking for a quote? Were here to assist you every step of the way.
         </div>
             <div className="py-2">
