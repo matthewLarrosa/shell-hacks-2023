@@ -6,6 +6,9 @@ export default {
       fontFamily: {
         zilla: ['"Zilla Slab"'],
       },
+      spacing: {
+        '128': '32rem',
+      }
     },
   },
   plugins: [],
