@@ -3,11 +3,9 @@ export default function Breakdown() {
   return (
     <div className="flex w-screen h-auto p-2">
         <div>
-            <div>Finding a policy that fits your needs is as simple as 1,2,3!</div>
-            <div>
-            Looking for auto? No problem. The entire process can be broken n/ into
-            3 steps.
-            </div>
+        <div className='font-zilla text-left text-black text-2xl'>
+          Looking for a quote? Were here to assist you every step of the way.
+        </div>
             <div className="py-2">
                 <div className="px-2 mt-2">
                     <div className="w-auto h-56 outline-black outline-1 border-solid border-2 overflow-hidden rounded-xl shadow-xl bg-[url('https://thumbnails.production.thenounproject.com/nfuzQDyj6LfHqyMrryHXKawd-SU=/fit-in/1000x1000/photos.production.thenounproject.com/photos/74B01E80-C6D4-4E27-838C-197454C7D311.jpg')] bg-cover bg-center">
