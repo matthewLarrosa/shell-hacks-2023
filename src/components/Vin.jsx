@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import car from "../assets/carLineArt.png"
 
 export default function Vin() {
-  let imageUrl = {car};
   let title = "";
   const [status, setStatus] = useState("+");
 
@@ -60,11 +59,12 @@ export default function Vin() {
         <div>
           <div className="max-w-xs rounded-custom overflow-hidden shadow-lg">
             <img
-              className="font-zilla w-full text-white"
+              className="font-zilla rounded-t-lg w-full text-white"
               src={car}
               alt={title}
+              
             />
-            <div className="px-4 py-2 bg-red-600">
+            <div className="px-4 py-2 bg-red-600 rounded-b-lg">
               <h2 className="font-zilla font-bold text-xl text-white">
                 {carInfo?.Make} {carInfo?.Model}
               </h2>
@@ -75,7 +75,7 @@ export default function Vin() {
                 VIN: {carInfo?.VIN}
               </p>
               <button
-                className="text-center h-auto p-2 w-auto bg-white rounded-full font-zilla text-md text-red-600"
+                className="text-center h-auto p-2 mb-4 w-auto bg-white rounded-full font-zilla text-md text-red-600"
                 onClick={handleClick}
               >
                 Add Vehicle {status}

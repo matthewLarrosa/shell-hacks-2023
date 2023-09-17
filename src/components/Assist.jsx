@@ -1,61 +1,121 @@
-import React from 'react'
+import { useState } from "react";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+  TypingIndicator,
+} from "@chatscope/chat-ui-kit-react";
+
+const API_KEY = "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";
+const systemMessage = {
+  role: "system",
+  content:
+    "Explain things like you're like a insurance agent that is very passionate about helping college student get insured.",
+};
 
 export default function Assist() {
+  const [messages, setMessages] = useState([
+    {
+      message: "Hello, I'm Finn! Im here to help with all your insurance needs.",
+      sentTime: "just now",
+      sender: "ChatGPT",
+    },
+  ]);
+  const [isTyping, setIsTyping] = useState(false);
+
+  const handleSend = async (message) => {
+    const newMessage = {
+      message,
+      direction: "outgoing",
+      sender: "user",
+    };
+
+    const newMessages = [...messages, newMessage];
+
+    setMessages(newMessages);
+
+    // Initial system message to determine ChatGPT functionality
+    // How it responds, how it talks, etc.
+    setIsTyping(true);
+    await processMessageToChatGPT(newMessages);
+  };
+
+  async function processMessageToChatGPT(chatMessages) {
+    // messages is an array of messages
+    // Format messages for chatGPT API
+    // API is expecting objects in format of { role: "user" or "assistant", "content": "message here"}
+    // So we need to reformat
+
+    let apiMessages = chatMessages.map((messageObject) => {
+      let role = "";
+      if (messageObject.sender === "ChatGPT") {
+        role = "assistant";
+      } else {
+        role = "user";
+      }
+      return { role: role, content: messageObject.message };
+    });
+
+    // Get the request body set up with the model we plan to use
+    // and the messages which we formatted above. We add a system message in the front to'
+    // determine how we want chatGPT to act.
+    const apiRequestBody = {
+      model: "gpt-3.5-turbo",
+      messages: [
+        systemMessage, // The system message DEFINES the logic of our chatGPT
+        ...apiMessages, // The messages from our chat with ChatGPT
+      ],
+    };
+
+    await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + API_KEY,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(apiRequestBody),
+    })
+      .then((data) => {
+        return data.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setMessages([
+          ...chatMessages,
+          {
+            message: data.choices[0].message.content,
+            sender: "ChatGPT",
+          },
+        ]);
+        setIsTyping(false);
+      });
+  }
+
   return (
-    <div className="flex h-auto w-screen bg-white justify-center">
-      <div className="flex items-center flex-col w-9/12">
-      <div className="ml-4 relative mt-11 ml-2 font-zilla font-bold text-4xl text-red-500 text-left">Need assistance?</div>
-      <div className="flex space-x-4">
-      <form className="px-4 my-6 max-w-3xl mx-auto space-y-6">
-        <div>
-        <h1 className="align-center mb-4 font-zilla font-medium text-2xl text-black text-left">Try our new AI assistant Finn!</h1>
-        </div>
-        <div class="flex-row">
-          
-          <div class="w-full mt-4">
-          
-          <label for="question"></label>
-          <input
-          placeholder='Ask me a question!'
-          className="border border-black block py2 px-4 w-full rounded focus:outline-gray-400 placeholder-black"
-          type="text"
-          name="question"
-          id="question"
-        />
-          </div>
-          
-          
-
-
-          
-      
-          
-
-          
-
-
-
-        </div>
-
-
-
-
-
-
-
-
-      </form>
-    
-    
-    
-    {/*
-        <input class="row-span-1 mr-2 bg-full h-12 px-6 mb-10 relative text-lg text-gray-700 placeholder-gray-600 border rounded-full focus:shadow-outline" type="text" placeholder="First Name:"/>        
-        <input class="col-span-2 mr-2 bg-full h-12 px-6 mb-10 relative text-lg text-gray-700 placeholder-gray-600 border rounded-full focus:shadow-outline" type="text" placeholder="Middle Initial:"/>        
-        <input class="row-span-2 col-span-2 mr-2 bg-full h-12 px-6 mb-10 relative text-lg text-gray-700 placeholder-gray-600 border rounded-full focus:shadow-outline" type="text" placeholder="Last Name:"/>        
-  */}
-        </div>
+    <div className="relative mt-56 flex bg-white justify-center">
+      <div className="flex items-center h-96 flex-col w-11/12">
+        <MainContainer className="mt-2 mb-2">
+          <ChatContainer>
+            <MessageList
+              scrollBehavior="smooth"
+              typingIndicator={
+                isTyping ? (
+                  <TypingIndicator content="Finn is typing" />
+                ) : null
+              }
+            >
+              {messages.map((message, i) => {
+                console.log(message);
+                return <Message key={i} model={message} />;
+              })}
+            </MessageList>
+            <MessageInput placeholder="Type message here" onSend={handleSend} />
+          </ChatContainer>
+        </MainContainer>
       </div>
     </div>
-  )
+  );
 }
-
