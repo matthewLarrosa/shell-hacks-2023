@@ -1,4 +1,3 @@
-import React from 'react'
 
 export default function GetStarted() {
   return (
@@ -8,14 +7,14 @@ export default function GetStarted() {
       <div className="flex space-x-4">
       <form className="px-4 my-6 max-w-3xl mx-auto space-y-6">
         <div>
-        <h1 className="align-center mb-4 font-zilla font-bold text-2xl text-white text-left">1. Personal Information</h1>
+        <h1 className="align-center mb-4 font-zilla font-medium text-2xl text-white text-left">1. Personal Information</h1>
         </div>
-        <div class="flex-row">
+        <div className="flex-row">
           
           <p className="font-zilla text-white text-xl font-medium">Tell us about yourself!</p>
-          <div class="w-full mt-4">
+          <div className="w-full mt-4">
           
-          <label for="firstname"></label>
+          <label htmlFor="firstname"></label>
           <input
           placeholder='First Name'
           className="border border-white block py2 px-4 w-full rounded focus:outline-gray-400 placeholder-black"
@@ -26,21 +25,21 @@ export default function GetStarted() {
           </div>
           <div className="w-full mt-4">
           
-          <label for="lastname"></label>
+          <label htmlFor="lastname"></label>
           <input
           placeholder='Last Name'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="lastname"
           id="lastname"
         />
           </div>
-          <div class="w-full mt-4 mb-4">
+          <div className="w-full mt-4 mb-4">
           
-          <label for="middleinitial"></label>
+          <label htmlFor="middleinitial"></label>
           <input
           placeholder='MI*'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="middleinitial"
           id="middleinitial"
@@ -53,34 +52,34 @@ export default function GetStarted() {
       suffix dropdown here
       */}
 
-          <div class="w-full mt-4">
+          <div className="w-full mt-4">
           
-          <label for="streetaddress"></label>
+          <label htmlFor="streetaddress"></label>
           <input
           placeholder='Street Address'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="streetaddress"
           id="streetaddress"
         />
           </div>
-          <div class="w-full mt-4">
+          <div className="w-full mt-4">
           
-          <label for="apt"></label>
+          <label htmlFor="apt"></label>
           <input
           placeholder='Apt/Unit*'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="apt"
           id="apt"
         />
           </div>
-          <div class="w-full mt-4">
+          <div className="w-full mt-4">
           
-          <label for="city"></label>
+          <label htmlFor="city"></label>
           <input
           placeholder='City'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="city"
           id="city"
@@ -91,12 +90,12 @@ export default function GetStarted() {
 
           dropdown for state here
           */}
-          <div class="w-full mt-4">
+          <div className="w-full mt-4">
           
-          <label for="zipcode"></label>
+          <label htmlFor="zipcode"></label>
           <input
           placeholder='ZIP Code'
-          class="border border-white block py2 px-4 w-full rounded placeholder-black"
+          className="border border-white block py2 px-4 w-full rounded placeholder-black"
           type="text"
           name="zipcode"
           id="zipcode"

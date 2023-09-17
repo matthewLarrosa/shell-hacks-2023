@@ -11,6 +11,8 @@ export default function Hero() {
         typeSpeed: 80,
         backSpeed: 80,
         showCursor: false,
+        loop: true,
+        loopCount: Infinity,
       });
   
       return () => {
