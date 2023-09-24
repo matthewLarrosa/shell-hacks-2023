@@ -2,16 +2,6 @@
 
 ![Statefamr Shellhacks Github](https://github.com/matthewLarrosa/shell-hacks-2023/assets/95898375/c26d5fd4-103d-4b76-b15c-694a5d2f5b1a)
 
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Features](#features)
-- [Usage](#usage)
-- [Acknowledgments](#acknowledgments)
-
----
-
 ## Project Overview
 
 The **Mobile Web App Auto Quoter with Assistive AI Chat Bot** is an innovative solution that simplifies the process of getting auto insurance quotes. It leverages state-of-the-art technologies to provide users with accurate quotes while offering a user-friendly experience.
@@ -42,10 +32,8 @@ The project is built using the following technologies and APIs:
 
 ---
 
-## Getting Started
+## Group Members
 
-To get started with the project, follow these steps:
-
-1. Clone the repository to your local machine:
-   ```bash
-   git clone https://github.com/your-username/shellhacks-2023-winner.git
+- **Matthew Larrosa**
+- **Alex Narvaez**
+- **Jared Tracey**
