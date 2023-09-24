@@ -1,6 +1,6 @@
 # ShellHacks 2023 Winner - Statefarm Challenge
 
-(![Statefamr Shellhacks Github](https://github.com/matthewLarrosa/shell-hacks-2023/assets/95898375/21a4447c-0ac7-43c7-b299-4f77a9827630)
+![Statefamr Shellhacks Github](https://github.com/matthewLarrosa/shell-hacks-2023/assets/95898375/c26d5fd4-103d-4b76-b15c-694a5d2f5b1a)
 
 ## Table of Contents
 - [Project Overview](#project-overview)
